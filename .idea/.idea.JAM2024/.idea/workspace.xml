@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b745c3c-f28a-4211-a3ff-3824fa7a0257" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MazeScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MazeScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerControl.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.JAM2024/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.JAM2024/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Maze/Part/L0-Wall.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Maze/Part/L0-Wall.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/PlayerControl.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/PlayerControl.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/MinimapRendertexture.renderTexture" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Textures/MinimapRendertexture.renderTexture" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,8 +17,8 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MazeBlock.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MazeChunk.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Wall.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Wallbreaker.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="2bWyxmJ2TI5660syEgMHjob9qAO" />
   <component name="ProjectViewState">
@@ -87,7 +90,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1706345380176</updated>
-      <workItem from="1706345381690" duration="20053000" />
+      <workItem from="1706345381690" duration="22273000" />
     </task>
     <servers />
   </component>
