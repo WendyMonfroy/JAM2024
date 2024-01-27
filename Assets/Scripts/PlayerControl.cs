@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
-    private Rigidbody playerrb;
+    public Transform cameratr;
 
-    public int speed = 60;
+    private Rigidbody playerrb;
+    private Transform playerRig;
+
+    public int speed = 80;
 
     private float horizontalInput;
     private float verticalInput;
+
 
     // Start is called before the first frame update
     void Start()
     {
         playerrb = GetComponent<Rigidbody>();
+        playerRig = transform.GetChild(0);
     }
 
     // Update is called once per frame
@@ -25,10 +30,18 @@ public class PlayerControl : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
 
         // move player transform
-        //transform.Translate(new Vector3(horizontalInput, 0, verticalInput) * Time.deltaTime * speed);
-        playerrb.AddForce(new Vector3(horizontalInput, 0, verticalInput) * Time.deltaTime * speed, ForceMode.VelocityChange);
+        //playerrb.AddForce(new Vector3(horizontalInput, 0, verticalInput) * Time.deltaTime * speed, ForceMode.VelocityChange);
+        playerrb.AddForce(cameratr.right * horizontalInput * Time.deltaTime * speed, ForceMode.VelocityChange);
+        playerrb.AddForce(cameratr.forward * verticalInput * Time.deltaTime * speed, ForceMode.VelocityChange);
 
-        // orientate player transform
-
+        // orientate player transform according to the movement direction
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+        {
+            playerRig.eulerAngles = cameratr.eulerAngles;
+        }
+        else if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) 
+        {
+            playerRig.eulerAngles = cameratr.eulerAngles + new Vector3(0, 180, 0);
+        }
     }
 }
