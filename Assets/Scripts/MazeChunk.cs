@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MazeChunk : MonoBehaviour
 {
-    private static int CHUNK_SIZE = 10;
+    public static int CHUNK_SIZE => 10;
     public Vector2 _index;
     
     public void GenerateChunk(Vector2 index)
@@ -25,19 +25,15 @@ public class MazeChunk : MonoBehaviour
     {
         int rotScale = Random.Range(0,5);
         int pieceNumber = Random.Range(0, 3);
-        
-        if (x == 0)
-        {
-            rotScale = 0;
-        }
-        
-        if (y == 0)
-        {
-            rotScale = 3;
-        }
-        
+
         GameObject piece = Instantiate( MazeGenerator.MazeBlocks[pieceNumber], transform);
         piece.transform.Rotate(Vector3.up, rotScale * 90);
         return piece;
+    }
+
+    public Vector2 GetBlockOpenings(int x, int y)
+    {
+        Transform child = transform.GetChild(x * CHUNK_SIZE + y);
+        return child.GetComponent<MazeBlock>().Openings;
     }
 }

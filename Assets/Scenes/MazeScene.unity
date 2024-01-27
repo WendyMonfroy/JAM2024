@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff965c7929326247b32af733b791f8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _index: {x: 0, y: 0}
 --- !u!4 &146180751
 Transform:
   m_ObjectHideFlags: 0
@@ -215,6 +216,7 @@ MonoBehaviour:
   - {fileID: 4273249216966037748, guid: 490b86ba99aa96840b0ef95e719bcf17, type: 3}
   - {fileID: 7401942162030829220, guid: 34b481f423eb8b145a9a94b5b64575d1, type: 3}
   - {fileID: 4450821741194426517, guid: 0dac2efbe859a974baea7bd28556eb89, type: 3}
+  - {fileID: 2774595495271139921, guid: 79a1d4277fdabba4fa614d9de23c8975, type: 3}
   _mazeChunk: {fileID: 146180749}
 --- !u!1 &1493554821
 GameObject:
