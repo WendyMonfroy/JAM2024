@@ -15,8 +15,8 @@ public class PlayerAnimatopr : MonoBehaviour
 
     private void Update()
     {
-        animator.SetFloat("Speed", _playerControl.inputs.magnitude);
-        animator.SetFloat("Forward", _playerControl.inputs.x);
-        animator.SetFloat("Right", _playerControl.inputs.y);
+        Vector2 i = _playerControl.getInputs();
+        animator.SetFloat("Forward", i.y);
+        animator.SetFloat("Right", i.x);
     }
 }
