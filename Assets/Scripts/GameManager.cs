@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -30,6 +31,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         isGameActive = true;
+        SceneManager.LoadScene("MazeScene");
     }
 
     private void TogglePlayPause()
@@ -47,14 +49,23 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void GameOver()
+    private void GameOver(bool win)
     {
         isGameActive = false;
         endScreen.SetActive(true);
     }
 
-    public void RestartGame()
+    public void BackToMenu()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("IntroScene");
+    }
+
+    public void ExitGame()
+    {
+#if UNITY_EDITOR
+        EditorApplication.ExitPlaymode();
+#else
+        Application.Quit();
+#endif
     }
 }
