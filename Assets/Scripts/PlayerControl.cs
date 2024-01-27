@@ -84,6 +84,5 @@ public class PlayerControl : MonoBehaviour
             angle = -90;
         }
         playerRig.eulerAngles = cameratr.eulerAngles + new Vector3(0, angle, 0);
-        Debug.Log(playerRig);
     }
 }
