@@ -7,50 +7,31 @@ using Random = UnityEngine.Random;
 public class MazeGenerator : MonoBehaviour
 {
     [SerializeField] private List<GameObject> _components;
-    private Transform _tr;
-    private float _sizeUnit = 10f;
+    [SerializeField] private GameObject _mazeChunk;
+
+    private static List<GameObject> mazeBlocks;
+    public static List<GameObject> MazeBlocks => mazeBlocks;
+    public static float BlockSize => 10f;
+    private Vector3 PlayerPosition = Vector3.zero;
+    
     // Start is called before the first frame update
     void Start()
     {
-        _tr = GetComponent<Transform>();
-        int gridSize = 20;
-        for (int i = 0; i < 20; i++)
+        mazeBlocks = _components;
+        
+        int demiGridSize = 1;
+        int startX = (int)PlayerPosition.x - demiGridSize;
+        int endX = (int)PlayerPosition.x + demiGridSize;
+        int startY = (int)PlayerPosition.y - demiGridSize;
+        int endY = (int)PlayerPosition.y + demiGridSize;
+        for (int i = startX; i <= endX; i++)
         {
-            for (int j = 0; j < 20; j++)
+            for (int j = startY; j <= endY; j++)
             {
-                if (i == 0 && j == 0)
-                {
-                    continue;
-                }
-                GameObject piece = GenerateMazePiece(i, j);
-                piece.transform.localPosition = new Vector3(i * _sizeUnit, 0, j * _sizeUnit);
+                GameObject chunk = Instantiate(_mazeChunk, transform);
+                chunk.GetComponent<MazeChunk>().GenerateChunk(new Vector2(i,j));
             }
         }
         
-    }
-
-    private GameObject GenerateMazePiece(int x, int y)
-    {
-        int rotScale = Random.Range(0,5);
-        int pieceNumber = Random.Range(0, 3);
-
-        if (x == 0 || y == 0)
-        {
-            pieceNumber = Random.Range(1, 3);
-        }
-
-        if (x == 0)
-        {
-            rotScale = 0;
-        }
-        
-        if (y == 0)
-        {
-            rotScale = 3;
-        }
-        
-        GameObject piece = Instantiate( _components[pieceNumber], _tr);
-        piece.transform.Rotate(Vector3.up, rotScale * 90);
-        return piece;
     }
 }
