@@ -36,16 +36,16 @@ public class AgressivEnnemies : BasicEnnemie
                 lastAttack = Time.time;
                 //choose a random attack
                 int attackId = Random.Range(0,attacks.Length);
-                //TODO
+                player.GetComponent<HeathManager>().TakeDamage(attacks[attackId].damages);
             }
         }
 
         if(Vector3.Distance(player.position, transform.position)<folowDist)
         {
             transform.LookAt(player.position);
-            transform.Translate(transform.forward * speed * Time.deltaTime);
+            if (Vector3.Distance(player.position, transform.position) > attackDist / 3f)
+                transform.Translate(transform.forward * speed * Time.deltaTime * -1);
         }
     }
 
 }
-

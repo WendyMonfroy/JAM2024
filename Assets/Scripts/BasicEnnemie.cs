@@ -15,16 +15,4 @@ public class BasicEnnemie : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
-
-    public void takeDamage(int damages)
-    {
-        health -= damages;
-        if (health <= 0)
-            Die();
-    }
-
-    public void Die()
-    {
-        //TODO
-    }
 }
