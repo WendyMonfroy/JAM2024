@@ -18,17 +18,39 @@ public class MazeGenerator : MonoBehaviour
         {
             for (int j = 0; j < 20; j++)
             {
-                int nb = Random.Range(0, 3);
-                GameObject piece = Instantiate(_components[nb], _tr);
+                if (i == 0 && j == 0)
+                {
+                    continue;
+                }
+                GameObject piece = GenerateMazePiece(i, j);
                 piece.transform.localPosition = new Vector3(i * _sizeUnit, 0, j * _sizeUnit);
             }
         }
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private GameObject GenerateMazePiece(int x, int y)
     {
+        int rotScale = Random.Range(0,5);
+        int pieceNumber = Random.Range(0, 3);
+
+        if (x == 0 || y == 0)
+        {
+            pieceNumber = Random.Range(1, 3);
+        }
+
+        if (x == 0)
+        {
+            rotScale = 0;
+        }
         
+        if (y == 0)
+        {
+            rotScale = 3;
+        }
+        
+        GameObject piece = Instantiate( _components[pieceNumber], _tr);
+        piece.transform.Rotate(Vector3.up, rotScale * 90);
+        return piece;
     }
 }
