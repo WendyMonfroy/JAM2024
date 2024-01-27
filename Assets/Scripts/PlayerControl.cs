@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -30,18 +32,55 @@ public class PlayerControl : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
 
         // move player transform
-        //playerrb.AddForce(new Vector3(horizontalInput, 0, verticalInput) * Time.deltaTime * speed, ForceMode.VelocityChange);
         playerrb.AddForce(cameratr.right * horizontalInput * Time.deltaTime * speed, ForceMode.VelocityChange);
         playerrb.AddForce(cameratr.forward * verticalInput * Time.deltaTime * speed, ForceMode.VelocityChange);
 
         // orientate player transform according to the movement direction
-        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+        OrientatePlayer();
+    }
+
+    private void OrientatePlayer()
+    {
+        int angle = 0;
+        if (verticalInput > 0.1f)
         {
-            playerRig.eulerAngles = cameratr.eulerAngles;
+            if (horizontalInput > 0.5f)
+            {
+                angle = 45;
+            }
+            else if (horizontalInput < -0.5f)
+            {
+                angle = -45;
+            }
+            else
+            {
+                angle = 0;
+            }
         }
-        else if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) 
+        else if (verticalInput < -0.1f)
         {
-            playerRig.eulerAngles = cameratr.eulerAngles + new Vector3(0, 180, 0);
+            if (horizontalInput > 0.5f)
+            {
+                angle = 135;
+            }
+            else if (horizontalInput < -0.5f)
+            {
+                angle = -135;
+            }
+            else
+            {
+                angle = 180;
+            }
         }
+
+        if (horizontalInput > 0.01f && (verticalInput < 0.1f && verticalInput > -0.1f))
+        {
+            angle = 90;
+        }
+        if (horizontalInput < -0.01f && (verticalInput < 0.1f && verticalInput > -0.1f))
+        {
+            angle = -90;
+        }
+        playerRig.eulerAngles = cameratr.eulerAngles + new Vector3(0, angle, 0);
     }
 }
