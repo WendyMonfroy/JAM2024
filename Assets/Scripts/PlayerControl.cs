@@ -14,6 +14,8 @@ public class PlayerControl : MonoBehaviour
     private float horizontalInput;
     private float verticalInput;
 
+    [HideInInspector]
+    public Vector2 inputs { get => new Vector2(horizontalInput, verticalInput);}
 
     // Start is called before the first frame update
     void Start()
