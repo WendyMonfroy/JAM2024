@@ -16,9 +16,6 @@ public class PlayerControl : MonoBehaviour
     private float horizontalInput;
     private float verticalInput;
 
-    [HideInInspector]
-    public Vector2 inputs { get => new Vector2(horizontalInput, verticalInput);}
-
     // Start is called before the first frame update
     void Start()
     {
@@ -84,5 +81,10 @@ public class PlayerControl : MonoBehaviour
             angle = -90;
         }
         playerRig.eulerAngles = cameratr.eulerAngles + new Vector3(0, angle, 0);
+    }
+
+    public Vector2 getInputs()
+    {
+        return new Vector2(horizontalInput, verticalInput);
     }
 }
