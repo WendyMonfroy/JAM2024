@@ -1,11 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class MazeChunk : MonoBehaviour
 {
     public static int CHUNK_SIZE => 10;
     public Vector2 _index;
+
+    public float GetDistanceTo(Vector2 position)
+    {
+        Vector2 p = new Vector2(transform.position.x, transform.position.z);
+        Vector2 dist = (p + (Vector2.one * CHUNK_SIZE * MazeGenerator.BlockSize / 2)) - position;
+        return dist.magnitude;
+    }
     
     public void GenerateChunk(Vector2 index)
     {
@@ -112,5 +121,11 @@ public class MazeChunk : MonoBehaviour
             op = child.GetComponent<MazeBlock>().Openings;
         }
         return op;
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if(other.gameObject.CompareTag("Player"))
+            MazeGenerator.UpdateMaze();
     }
 }
