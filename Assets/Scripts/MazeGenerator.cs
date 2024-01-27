@@ -39,25 +39,8 @@ public class MazeGenerator : MonoBehaviour
             for (int j = startY; j <= endY; j++)
             {
                 GameObject chunk = Instantiate(_mazeChunk, transform);
-                GetBorder(i, j);
                 chunk.GetComponent<MazeChunk>().GenerateChunk(new Vector2(i,j));
             }
         }
-    }
-
-    private List<List<Vector2>> GetBorder(int x, int y)
-    {
-        List<List<Vector2>> list = new List<List<Vector2>>();
-
-
-        for (int i = 0; i < MazeChunk.CHUNK_SIZE; i++)
-        {
-            for (int j = 0; j < MazeChunk.CHUNK_SIZE; j++)
-            {
-                
-            } 
-        }
-
-        return list;
     }
 }

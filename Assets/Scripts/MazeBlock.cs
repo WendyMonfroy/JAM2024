@@ -6,27 +6,26 @@ using UnityEngine;
 public class MazeBlock : MonoBehaviour
 {
     [SerializeField] private Vector2 _openings;
-    private Vector2 _trueOpening;
 
-    public Vector2 Openings => _trueOpening;
+    public Vector2 Openings => GetTrueOpening();
 
-    private void Start()
+    private Vector2 GetTrueOpening()
     {
         float angle = (transform.rotation.eulerAngles.y + 360) % 360;
+        Vector2 trueOpening = _openings;
         switch (angle)
         {
             case 90 :
-                _trueOpening = new Vector2(-1 *_openings.y,_openings.x);
+                trueOpening = new Vector2(-1 *_openings.y,_openings.x);
                 break;
             case 180 :
-                _trueOpening = new Vector2( -1 * _openings.x, -1 * _openings.y);
+                trueOpening = new Vector2( -1 * _openings.x, -1 * _openings.y);
                 break;
             case 270 :
-                _trueOpening = new Vector2( _openings.y, -1 * _openings.x);
-                break;
-            default:
-                _trueOpening = _openings;
+                trueOpening = new Vector2( _openings.y, -1 * _openings.x);
                 break;
         }
+
+        return trueOpening;
     }
 }
