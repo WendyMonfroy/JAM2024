@@ -115,6 +115,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4843984671562266966}
+  - component: {fileID: 6738507886804550613}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -141,6 +142,25 @@ Transform:
   - {fileID: 2555461486532670234}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6738507886804550613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924094931203065247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6e0fc95257602b4fb4c0e24c2a594b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPoint: {x: 0, y: 0.58, z: 0}
+  spawnRadius: 3.33
+  prefab: {fileID: 2555699000776409989, guid: 5a968cff30da36e41bbc21a4ed12b72a, type: 3}
+  memeTemplates:
+  - {fileID: 11400000, guid: 2e574043e9f07f24dae959ca75569a93, type: 2}
+  - {fileID: 11400000, guid: 0184a843353838849b7b669ed97a4eba, type: 2}
+  - {fileID: 11400000, guid: 1ca1637eb7e18b743a41d8fb960fa376, type: 2}
 --- !u!1 &4759320337734704764
 GameObject:
   m_ObjectHideFlags: 0
