@@ -208,7 +208,8 @@ PrefabInstance:
       value: L0-Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4909341472677776750, guid: 0aee155123d8c6248aa5e9aa29581d4e, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0aee155123d8c6248aa5e9aa29581d4e, type: 3}
@@ -270,7 +271,8 @@ PrefabInstance:
       value: L0-Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4909341472677776750, guid: 0aee155123d8c6248aa5e9aa29581d4e, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0aee155123d8c6248aa5e9aa29581d4e, type: 3}
