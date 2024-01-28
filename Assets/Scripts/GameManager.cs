@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    // store a unique instance
+    public static GameManager instance;
+
     public GameObject endScreen;
     public GameObject startScreen;
     public GameObject pauseScreen;
@@ -13,39 +16,42 @@ public class GameManager : MonoBehaviour
     public bool isGameActive = false;
     public bool isPaused = false;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        // ensure the singleton
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+        Debug.Log(instance);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            TogglePlayPause();
-        }
+        
     }
 
     public void StartGame()
     {
         isGameActive = true;
+        isPaused = false;
         SceneManager.LoadScene("MazeScene");
+        pauseScreen = GameObject.Find("--PauseCanvas--");
     }
 
-    private void TogglePlayPause()
+    public void TogglePlayPause()
     {
         isPaused = !isPaused;
         if (isPaused)
         {
             Time.timeScale = 0;
-            pauseScreen.SetActive(true);
         }
         else
         {
             Time.timeScale = 1;
-            pauseScreen.SetActive(false);
         }
     }
 
