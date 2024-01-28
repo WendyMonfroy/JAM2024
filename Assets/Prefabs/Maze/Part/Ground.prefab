@@ -81,7 +81,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 73962b389cdaf7648bf301bc2cbaea5c, type: 2}
   - {fileID: 11400000, guid: 35c0f1a2664440e4dafa22dc935f5012, type: 2}
   - {fileID: 11400000, guid: 736903efaab6a0047bd2c907e7192ff7, type: 2}
-  spawnProbability: 0.1
+  spawnProbability: 0.3
 --- !u!1 &3408179792151951641
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,11 @@ public class SceneChanger : MonoBehaviour
     public void FadeOut()
     {
         animator.SetTrigger("fadeout");
+        if (levelToLoad == "IntroScene")
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 
 

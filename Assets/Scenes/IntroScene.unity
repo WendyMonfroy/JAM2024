@@ -434,7 +434,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -150}
+  m_AnchoredPosition: {x: 0, y: -232}
   m_SizeDelta: {x: 180, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &705324496
@@ -944,6 +944,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2542701520541160668, guid: bbd9b30931cd0d44589ff30a0d9d9ef9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 190
+      objectReference: {fileID: 0}
     - target: {fileID: 4187961860839299387, guid: bbd9b30931cd0d44589ff30a0d9d9ef9, type: 3}
       propertyPath: m_Color.a
       value: 0.43137255
@@ -1066,7 +1070,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8701600111272868981, guid: bbd9b30931cd0d44589ff30a0d9d9ef9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -80
+      value: -162
       objectReference: {fileID: 0}
     - target: {fileID: 9036845094218445286, guid: bbd9b30931cd0d44589ff30a0d9d9ef9, type: 3}
       propertyPath: m_Name

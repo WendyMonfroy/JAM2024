@@ -40,6 +40,8 @@ public class GameManager : MonoBehaviour
     {
         isGameActive = true;
         isPaused = false;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         changer.FadeOut();
         //StartCoroutine(LoadGame());
         //SceneManager.LoadScene("MazeScene");
@@ -56,11 +58,13 @@ public class GameManager : MonoBehaviour
         isPaused = !isPaused;
         if (isPaused)
         {
-            Time.timeScale = 0;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
         else
         {
-            Time.timeScale = 1;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
     }
 
@@ -72,6 +76,7 @@ public class GameManager : MonoBehaviour
     public void BackToMenu()
     {
         SceneManager.LoadScene("IntroScene");
+
     }
 
     public void ExitGame()

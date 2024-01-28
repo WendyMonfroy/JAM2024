@@ -68,19 +68,9 @@ public class MainUIManager : MonoBehaviour
     }
 
     // end game screen display
-    private void EndGame()
+    public void EndGame()
     {
         endScreen.SetActive(true);
-        if (gameManager != null)
-        {
-            if (gameManager.isWin)
-            {
-                wintxt.SetActive(true);
-            }
-            else
-            {
-                losetxt.SetActive(true);
-            }
-        }
+        losetxt.SetActive(true);
     }
 }
