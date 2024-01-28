@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 464279902745750928}
   - component: {fileID: 7174752383783167002}
   - component: {fileID: 7926582029607499794}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: MazeChunk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
