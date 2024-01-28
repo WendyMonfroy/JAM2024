@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public GameObject pauseScreen;
 
     public bool isGameActive = false;
+    public bool isWin = false;
     public bool isPaused = false;
 
     private void Awake()
@@ -39,7 +40,6 @@ public class GameManager : MonoBehaviour
         isGameActive = true;
         isPaused = false;
         SceneManager.LoadScene("MazeScene");
-        pauseScreen = GameObject.Find("--PauseCanvas--");
     }
 
     public void TogglePlayPause()
@@ -58,7 +58,6 @@ public class GameManager : MonoBehaviour
     private void GameOver(bool win)
     {
         isGameActive = false;
-        endScreen.SetActive(true);
     }
 
     public void BackToMenu()
