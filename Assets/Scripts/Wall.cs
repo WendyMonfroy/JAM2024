@@ -10,6 +10,7 @@ public class Wall : MonoBehaviour
 	public void DestroyWall()
 	{
 		_wall.SetActive(false);
+		GetComponent<BoxCollider>().enabled = false;
 		foreach (ParticleSystem p in _particules.GetComponentsInChildren<ParticleSystem>())
 		{
 			p.Play();

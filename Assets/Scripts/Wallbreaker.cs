@@ -6,16 +6,18 @@ using Screen = UnityEngine.Device.Screen;
 
 public class Wallbreaker : MonoBehaviour
 {
+    public LayerMask IgnoreMe;
     private void Update()
     {
+        Ray ray = new Ray(transform.position, transform.forward);
+        //Debug.Log(transform.forward);
         if (Input.GetMouseButtonDown(0))
         {
+            
             RaycastHit hit;
-            Vector3 middle = new Vector3(Screen.width / 2, (Screen.height * 2) /3, 0);
-            Ray ray = Camera.main.ScreenPointToRay(middle);
-        
-            if (Physics.Raycast(ray, out hit)) {
+            if (Physics.Raycast(ray, out hit, 100, ~IgnoreMe)) {
                 GameObject objectHit = hit.transform.gameObject;
+                Debug.Log(objectHit);
                 if (objectHit.CompareTag("Wall"))
                 {
                     objectHit.GetComponent<Wall>().DestroyWall();
