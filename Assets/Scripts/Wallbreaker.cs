@@ -6,21 +6,30 @@ using Screen = UnityEngine.Device.Screen;
 
 public class Wallbreaker : MonoBehaviour
 {
+    public LayerMask IgnoreMe;
+    private int cooldown = 8;
+    private bool canSBreak = true;
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        Ray ray = new Ray(transform.position, transform.forward);
+        if (Input.GetMouseButtonDown(0) && canSBreak)
         {
             RaycastHit hit;
-            Vector3 middle = new Vector3(Screen.width / 2, (Screen.height * 2) /3, 0);
-            Ray ray = Camera.main.ScreenPointToRay(middle);
-        
-            if (Physics.Raycast(ray, out hit)) {
+            if (Physics.Raycast(ray, out hit, 100, ~IgnoreMe)) {
                 GameObject objectHit = hit.transform.gameObject;
                 if (objectHit.CompareTag("Wall"))
                 {
                     objectHit.GetComponent<Wall>().DestroyWall();
+                    StartCoroutine(CountDownCoolDown());
                 }
             }
         }
+    }
+
+    private IEnumerator CountDownCoolDown()
+    {
+        canSBreak = false;
+        yield return new WaitForSeconds(cooldown);
+        canSBreak = true;
     }
 }

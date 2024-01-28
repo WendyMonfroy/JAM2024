@@ -14,7 +14,10 @@ public class GameManager : MonoBehaviour
     public GameObject pauseScreen;
 
     public bool isGameActive = false;
+    public bool isWin = false;
     public bool isPaused = false;
+
+    public SceneChanger changer;
 
     private void Awake()
     {
@@ -25,7 +28,6 @@ public class GameManager : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
-        Debug.Log(instance);
     }
 
     // Update is called once per frame
@@ -38,8 +40,15 @@ public class GameManager : MonoBehaviour
     {
         isGameActive = true;
         isPaused = false;
+        changer.FadeOut();
+        //StartCoroutine(LoadGame());
+        //SceneManager.LoadScene("MazeScene");
+    }
+
+    private IEnumerator LoadGame()
+    {
+        yield return new WaitForSeconds(0.8f);
         SceneManager.LoadScene("MazeScene");
-        pauseScreen = GameObject.Find("--PauseCanvas--");
     }
 
     public void TogglePlayPause()
@@ -58,7 +67,6 @@ public class GameManager : MonoBehaviour
     private void GameOver(bool win)
     {
         isGameActive = false;
-        endScreen.SetActive(true);
     }
 
     public void BackToMenu()
