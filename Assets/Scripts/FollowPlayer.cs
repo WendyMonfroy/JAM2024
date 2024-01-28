@@ -37,23 +37,28 @@ public class FollowPlayer : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        if (GameManager.instance != null)
+        {
+            if (GameManager.instance.isPaused)
+                return;
+        }
         transform.position = player.transform.position;
 
-        // get input mouse
+            // get input mouse
         mouseHorizontalInput += Input.GetAxis("Mouse X");
         mouseVerticalInput -= Input.GetAxis("Mouse Y");
 
-        // orientate camera following the mouse
+            // orientate camera following the mouse
         transform.eulerAngles = new Vector3(0, mouseHorizontalInput, 0) * rotationspeed;
 
         RaycastHit hit;
         Physics.Raycast(transform.position + lookAtPos, (camPos.position - transform.position - lookAtPos), out hit, Vector3.Distance(camPos.position, transform.position + lookAtPos));
         if (hit.collider != null)
         {
-            if(hit.collider.tag == "Wall")
+            if (hit.collider.tag == "Wall")
             {
-                Vector3 newPos = (hit.point - (transform.position + lookAtPos)) * 0.9f;
-                cam.position = (transform.position + lookAtPos) + newPos;
+                    Vector3 newPos = (hit.point - (transform.position + lookAtPos)) * 0.9f;
+                    cam.position = (transform.position + lookAtPos) + newPos;
             }
         }
         else
