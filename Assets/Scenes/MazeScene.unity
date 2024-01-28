@@ -1737,6 +1737,7 @@ GameObject:
   - component: {fileID: 4502682790288361787}
   - component: {fileID: 513983289949825233}
   - component: {fileID: 5767853698759412144}
+  - component: {fileID: 7232032371742687954}
   m_Layer: 0
   m_Name: --Player--
   m_TagString: Player
@@ -2187,6 +2188,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameratr: {fileID: 2879478873063383904}
   speed: 150
+--- !u!114 &7232032371742687954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4064347476996476197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a4575c90bb8a65459868bbc130124aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickedMemes: 0
 --- !u!114 &7232032373057209516
 MonoBehaviour:
   m_ObjectHideFlags: 0

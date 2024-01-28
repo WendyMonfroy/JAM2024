@@ -17,9 +17,10 @@ public class PickabableMeme : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if(collision.GetComponent<Rigidbody>() != null)
+        print(gameObject.name +  "by" + collision.name);
+        if(collision.GetComponentInParent<Inventory>() != null)
         {
-            collision.GetComponent<Rigidbody>().GetComponentInParent<Inventory>().pickMeme();
+            collision.GetComponentInParent<Inventory>().pickMeme();
             Destroy(gameObject);
         }
     }
