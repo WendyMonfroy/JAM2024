@@ -15,6 +15,8 @@ public class MainUIManager : MonoBehaviour
 
     private GameManager gameManager;
 
+    public SceneChanger changer;
+
 
     // Start is called before the first frame update
     void Start()
@@ -50,10 +52,14 @@ public class MainUIManager : MonoBehaviour
         TogglePause();
     }
 
+    // bind hte back to menu button
     public void ToMenu()
     {
-        SceneManager.LoadScene("IntroScene");
+        //changer.levelToLoad = "IntroScene";
+        changer.FadeOut();
+        TogglePause();
     }
+
 
     // score display update
     public void ScoreUpdate(int score)

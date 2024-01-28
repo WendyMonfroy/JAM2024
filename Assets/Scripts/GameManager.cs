@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     public bool isWin = false;
     public bool isPaused = false;
 
+    public SceneChanger changer;
+
     private void Awake()
     {
         // ensure the singleton
@@ -26,7 +28,6 @@ public class GameManager : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
-        Debug.Log(instance);
     }
 
     // Update is called once per frame
@@ -39,6 +40,14 @@ public class GameManager : MonoBehaviour
     {
         isGameActive = true;
         isPaused = false;
+        changer.FadeOut();
+        //StartCoroutine(LoadGame());
+        //SceneManager.LoadScene("MazeScene");
+    }
+
+    private IEnumerator LoadGame()
+    {
+        yield return new WaitForSeconds(0.8f);
         SceneManager.LoadScene("MazeScene");
     }
 
