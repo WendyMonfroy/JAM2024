@@ -1696,7 +1696,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 999535902}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &999535905
 Camera:
   m_ObjectHideFlags: 0
@@ -3266,6 +3266,7 @@ GameObject:
   - component: {fileID: 1803251195330604272}
   - component: {fileID: 3693804048119979604}
   - component: {fileID: 1616715187736395470}
+  - component: {fileID: 6954540516953570196}
   m_Layer: 0
   m_Name: PlayerRig
   m_TagString: Untagged
@@ -3865,6 +3866,21 @@ Transform:
   - {fileID: 1878413919}
   m_Father: {fileID: 5781116401643529025}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6954540516953570196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 803958394106415816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b54ad8c20d674f46882462b2d325598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IgnoreMe:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &7232032371742687953
 MonoBehaviour:
   m_ObjectHideFlags: 0

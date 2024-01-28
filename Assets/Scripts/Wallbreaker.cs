@@ -17,7 +17,6 @@ public class Wallbreaker : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, 100, ~IgnoreMe)) {
                 GameObject objectHit = hit.transform.gameObject;
-                Debug.Log(objectHit);
                 if (objectHit.CompareTag("Wall"))
                 {
                     objectHit.GetComponent<Wall>().DestroyWall();
