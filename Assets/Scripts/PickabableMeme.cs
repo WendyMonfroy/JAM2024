@@ -6,13 +6,18 @@ public class PickabableMeme : MonoBehaviour
 {
 
     public MemeTemplate template;
-
     public SpriteRenderer spriteRenderer;
+
+    public float size = 1;
 
     public void init()
     {
-        if(template != null)
+        if (template != null)
+        {
             spriteRenderer.sprite = template.sprite;
+            float width = template.sprite.rect.width;
+            transform.localScale = transform.localScale * (size/width) * 500;
+        }
     }
 
     private void OnTriggerEnter(Collider collision)

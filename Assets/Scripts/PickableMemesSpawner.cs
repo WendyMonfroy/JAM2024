@@ -11,9 +11,11 @@ public class PickableMemesSpawner : MonoBehaviour
 
     public MemeTemplate[] memeTemplates;
 
+    public float spawnProbability = 0.08f;
+
     private void Start()
     {
-        spawnPickableMeme(0.3f);
+        spawnPickableMeme(spawnProbability);
     }
 
     private void OnDrawGizmos()
@@ -34,6 +36,7 @@ public class PickableMemesSpawner : MonoBehaviour
             PickabableMeme me = PickabableMeme.Instantiate(prefab, transform.position + pt, Quaternion.identity, transform);
             me.template = memeTemplates[Random.Range(0, memeTemplates.Length)];
             me.transform.Rotate(Vector3.up * a * 180 / 3.14f);
+            me.size = 2;
             me.init();
         }
     }
